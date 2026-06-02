@@ -105,7 +105,7 @@ function isFocusVisible(event: React.FocusEvent): boolean {
   const { target } = event;
   try {
     return target.matches(':focus-visible');
-  } catch (error) {
+  } catch (error: unknown) {
     // Browsers not implementing :focus-visible will throw a SyntaxError.
     // We use our own heuristic for those browsers.
     // Rethrow might be better if it's not the expected error but do we really
