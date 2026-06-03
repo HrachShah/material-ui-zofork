@@ -45,8 +45,8 @@ const localStorageManager: StorageManager = ({ key, storageWindow }) => {
       let value;
       try {
         value = storageWindow.localStorage.getItem(key);
-      } catch {
-        // Unsupported
+      } catch (e: unknown) {
+        console.error("[localStorageManager] getItem failed", e);
       }
       return value || defaultValue;
     },
@@ -54,8 +54,8 @@ const localStorageManager: StorageManager = ({ key, storageWindow }) => {
       if (storageWindow) {
         try {
           storageWindow.localStorage.setItem(key, value);
-        } catch {
-          // Unsupported
+        } catch (e: unknown) {
+          console.error("[localStorageManager] setItem failed", e);
         }
       }
     },

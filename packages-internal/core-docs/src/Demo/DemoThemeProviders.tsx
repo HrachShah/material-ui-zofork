@@ -53,7 +53,7 @@ export function DemoInstanceThemeProvider({
     if (runtimeTheme && Object.prototype.toString.call(runtimeTheme) === '[object Object]') {
       try {
         return deepmerge(resultTheme, runtimeTheme);
-      } catch {
+      } catch (e: unknown) {
         return resultTheme;
       }
     }

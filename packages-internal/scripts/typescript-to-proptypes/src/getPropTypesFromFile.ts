@@ -133,7 +133,7 @@ function pickCoveringJSDoc(comments: string[], tieBreak: 'first' | 'last'): stri
       return parsed.tags
         .filter((t) => t.title === 'param')
         .reduce((sum, t) => sum + (t.type ? flattenUnionTypes(t.type).length : 0), 0);
-    } catch {
+    } catch (e: unknown) {
       return 0;
     }
   };

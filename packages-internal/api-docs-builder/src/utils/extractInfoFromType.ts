@@ -41,8 +41,8 @@ const extractInfoFromType = async (
     result = Object.values(properties)
       .filter((property) => !property.tags.ignore)
       .sort((a, b) => a.name.localeCompare(b.name));
-  } catch {
-    console.error(`No declaration for ${typeName}`);
+  } catch (e: unknown) {
+    console.error(`No declaration for ${typeName}`, e);
   }
 
   return result;
