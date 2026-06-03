@@ -90,7 +90,7 @@ export default async function generateApiTranslations<ReactApi extends MinimalRe
             undefined,
             { flag: 'wx' },
           );
-        } catch (error) {
+        } catch (error: unknown) {
           // File exists
         }
       }

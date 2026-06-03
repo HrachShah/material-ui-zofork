@@ -145,7 +145,7 @@ export default async function parseTest(componentFilename: string): Promise<Pars
         descriptor = findConformanceDescriptor(babelParseResult);
       }
     }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error(error);
   }
 

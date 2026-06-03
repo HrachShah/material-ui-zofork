@@ -100,7 +100,7 @@ async function submitFeedback(
       throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     }
     return 'sent';
-  } catch (error) {
+  } catch (error: unknown) {
     console.error(error);
     return null;
   }

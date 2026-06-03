@@ -29,7 +29,7 @@ function getOption(storageKey: string, defaultValue: ApiDisplayLayout): ApiDispl
     if (savedOption !== null && options.includes(savedOption as ApiDisplayLayout)) {
       return savedOption as ApiDisplayLayout;
     }
-  } catch (error) {
+  } catch (error: unknown) {
     return defaultValue;
   }
   return defaultValue;
@@ -61,7 +61,7 @@ export function useApiPageOption(
     (newOption: ApiDisplayLayout) => {
       try {
         localStorage.setItem(storageKey, newOption);
-      } catch (error) {
+      } catch (error: unknown) {
         // Do nothing
       }
       setOption(newOption);
